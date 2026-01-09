@@ -31,7 +31,7 @@ def print_results(results, print_status=True):
 
         try:
             if 'points' in results:
-                print(f'{key.title():>8} {value:5.2f} / {results['points'][key]:5.2f}')
+                print(f'{key.title():>8} {value:5.2f} / {results["points"][key]:5.2f}')
             else:
                 print(f'{key.title():>8} {value:5.2f}')
         except (KeyError, ValueError):
