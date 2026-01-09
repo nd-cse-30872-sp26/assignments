@@ -86,7 +86,10 @@ def check_code(assignment, path):
 
     result = 1
     for source in sources:
-        print(f'\nChecking {assignment} {os.path.basename(source)} ...')
+        if source != sources[0]:
+            print()
+
+        print(f'Checking {assignment} {os.path.basename(source)} ...')
         response = requests.post(DREDD_CODE_URL + assignment, files={'source': open(source)})
         print_results(response.json(), False)
 
