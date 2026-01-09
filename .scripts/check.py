@@ -30,12 +30,15 @@ def print_results(results, print_status=True):
             continue
 
         try:
-            print(f'{key.title():>8} {value:5.2f} / {results['points'][key]:5.2f}')
+            if 'points' in results:
+                print(f'{key.title():>8} {value:5.2f} / {results['points'][key]:5.2f}')
+            else:
+                print(f'{key.title():>8} {value:5.2f}')
         except (KeyError, ValueError):
             if key in ('stdout', 'diff'):
                 print(f'{key.title():>8}\n{value}')
             else:
-                print(f'{key.title():>8} {value})')
+                print(f'{key.title():>8} {value}')
 
     score  = results.get('score', 0)
     total  = results.get('value', 0)
